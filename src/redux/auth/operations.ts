@@ -4,8 +4,12 @@ import {
   apiLogoutUser,
   apiRefreshUser,
   apiRegisterUser,
-} from "../../services/api";
-import type { AuthResponse, LoginType, RegisterType } from "../../types/types";
+} from "../../services/auth-api";
+import type {
+  AuthResponse,
+  LoginType,
+  RegisterType,
+} from "../../types/authTypes";
 import type { RootState } from "../store";
 
 export const registerUser = createAsyncThunk<AuthResponse, RegisterType>(

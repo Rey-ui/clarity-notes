@@ -1,26 +1,17 @@
-export interface User {
-  name: string | null;
-  email: string | null;
+export interface NoteType {
+  id: string;
+  created_at: string;
+  user_id: string;
+  title: string;
+  content: string;
+  priority: "high" | "medium" | "low";
+  done: boolean;
 }
+export type RequestNoteType = Omit<NoteType, "id" | "created_at" | "user_id">;
 
-export interface RegisterType {
-  name: string;
-  email: string;
-  password: string;
-}
-export interface LoginType {
-  email: string;
-  password: string;
-}
-export interface AuthResponse {
-  user: User;
-  access_token: string;
-  refresh_token: string;
-}
-export interface InitialAuthStateType {
-  user: User;
-  refreshToken: string | null;
-  accessToken: string | null;
-  isLoggedIn: boolean;
-  isRefreshing: boolean;
+export interface InitialNotesStateType {
+  items: NoteType[];
+  loading: boolean;
+  error: null | string;
+  theme: "light" | "dark";
 }

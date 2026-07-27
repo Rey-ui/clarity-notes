@@ -9,9 +9,11 @@ import {
   REGISTER,
 } from "redux-persist";
 import { persistedAuthReducer } from "./auth/slice";
+import { notesReducer } from "./notes/slice";
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
+    notes: notesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
