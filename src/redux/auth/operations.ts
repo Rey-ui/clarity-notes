@@ -64,7 +64,7 @@ export const refresh = createAsyncThunk<AuthResponse, void>(
     }
     try {
       const response = await apiRefreshUser(persistedToken);
-      console.log(response);
+      //console.log(response);
       return response;
     } catch (error) {
       if (error instanceof Error) {

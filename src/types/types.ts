@@ -15,3 +15,14 @@ export interface InitialNotesStateType {
   error: null | string;
   theme: "light" | "dark";
 }
+export interface InitialNotesStateType {
+  items: NoteType[];
+  loading: boolean;
+  error: null | string;
+  theme: "light" | "dark";
+}
+
+export interface InitialFiltersStateType {
+  byStatus: "all" | "active" | "done";
+  byPriority: "all" | "high" | "medium" | "low";
+}
