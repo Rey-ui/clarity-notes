@@ -1,15 +1,10 @@
 import { Field, Form, Formik, type FormikHelpers } from "formik";
 import * as Yup from "yup";
-import type { RegisterType } from "../../types/authTypes";
+import type { LoginType } from "../../types/authTypes";
 import { useAppDispatch } from "../../hooks";
-import { registerUser } from "../../redux/auth/operations";
+import { loginUser } from "../../redux/auth/operations";
 import toast from "react-hot-toast";
-
 const RegisterSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
   email: Yup.string().email("Must be a valid email!").required("Required"),
   password: Yup.string()
     .required("Required")
@@ -17,19 +12,16 @@ const RegisterSchema = Yup.object().shape({
     .max(50, "Too Long!"),
 });
 const initialValues = {
-  name: "",
   email: "",
   password: "",
 };
-
-const RegisterForm = () => {
+const LoginForm = () => {
   const dispatch = useAppDispatch();
-
   const onSubmit = (
-    values: RegisterType,
-    { resetForm }: FormikHelpers<RegisterType>,
+    values: LoginType,
+    { resetForm }: FormikHelpers<LoginType>,
   ): void => {
-    dispatch(registerUser(values))
+    dispatch(loginUser(values))
       .unwrap()
       .then(() => {
         toast.success("success signUn");
@@ -47,13 +39,12 @@ const RegisterForm = () => {
       onSubmit={onSubmit}
     >
       <Form>
-        <Field type="text" name="name" />
         <Field type="email" name="email" />
         <Field type="password" name="password" />
-        <button type="submit">register</button>
+        <button type="submit">SignIn</button>
       </Form>
     </Formik>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

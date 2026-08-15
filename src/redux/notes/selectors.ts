@@ -8,6 +8,7 @@ import {
 export const selectNotes = (state: RootState) => state.notes.items;
 export const selectLoading = (state: RootState) => state.notes.loading;
 export const selectError = (state: RootState) => state.notes.error;
+export const selectTheme = (state: RootState) => state.notes.theme;
 export const selectFiltredNotes = createSelector(
   [selectNotes, selectFilterByStatus, selectFilterByPriority],
   (notes, status, priority) => {

@@ -9,12 +9,12 @@ import {
   REGISTER,
 } from "redux-persist";
 import { persistedAuthReducer } from "./auth/slice";
-import { notesReducer } from "./notes/slice";
+import { persistedNotesReducer } from "./notes/slice";
 import { filtersReducer } from "./filters/slice";
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
-    notes: notesReducer,
+    notes: persistedNotesReducer,
     filters: filtersReducer,
   },
   middleware: (getDefaultMiddleware) =>

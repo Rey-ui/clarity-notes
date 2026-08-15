@@ -14,15 +14,7 @@ const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
 const NotesPage = lazy(() => import("./pages/NotesPage/NotesPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
-// const data = {
-//   name: "qwerty",
-//   email: "jfbfribr@gmail.com",
-//   password: "dggdgdgdgd",
-// };
-// const data = {
-//   email: "ihfrtttqqiddvrevvrf@gmail.com",
-//   password: "347dqwgrereqnd484378378",
-// };
+
 function App() {
   const useAppDispatch: () => AppDispatch = useDispatch;
   const isRefreshing = useSelector(selectIsRefreshing);

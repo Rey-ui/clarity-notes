@@ -12,6 +12,7 @@ export const addNote = createAsyncThunk<NoteType, RequestNoteType>(
   async (data, thunkAPI) => {
     try {
       const response = await apiAddNote(data);
+      console.log(response);
       return response;
     } catch (error) {
       if (error instanceof Error) {
