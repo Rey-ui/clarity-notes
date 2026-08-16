@@ -26,4 +26,5 @@
 
 body {
   background-color: var(--bg-color);
+  transition: all 500ms;
 }

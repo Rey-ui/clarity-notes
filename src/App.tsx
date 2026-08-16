@@ -1,5 +1,5 @@
 import { lazy, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import { refresh } from "./redux/auth/operations";
 import type { AppDispatch } from "./redux/store";
@@ -29,6 +29,7 @@ function App() {
       ) : (
         <Routes>
           <Route path="/" element={<Layout />}>
+            <Route index element={<Navigate to="/notes" />} />
             <Route
               path="/register"
               element={
