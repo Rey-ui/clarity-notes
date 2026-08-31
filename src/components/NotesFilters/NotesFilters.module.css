@@ -1,0 +1,13 @@
+.statsBtn {
+  padding: 10px 6px;
+  border-radius: 10px;
+  transition: all 950ms;
+}
+
+.activeStats {
+  background-color: aqua;
+  transition: all 950ms;
+}
+.activePriority {
+  background-color: rgb(2, 201, 201);
+}
