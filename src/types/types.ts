@@ -26,3 +26,8 @@ export interface InitialFiltersStateType {
   byStatus: "all" | "active" | "done";
   byPriority: "all" | "high" | "medium" | "low";
 }
+interface ApiQouteResponce {
+  quote: string;
+  author: string;
+  category: string;
+}

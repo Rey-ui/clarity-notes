@@ -1,11 +1,12 @@
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
+import HelmetComponent from "../../components/HelmetComponent";
 
 const RegisterPage = () => {
   return (
-    <div>
-      RegisterPage
+    <main>
+      <HelmetComponent>Register page</HelmetComponent>
       <RegisterForm />
-    </div>
+    </main>
   );
 };
 

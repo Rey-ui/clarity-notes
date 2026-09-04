@@ -19,7 +19,7 @@ const NotesFilters = () => {
   };
   const handleFilterByPriority = (value: FilterPriority = "all") => {
     dispatch(filterByPriority(value));
-    console.log(value);
+    //console.log(value);
   };
   //   const activeStatsBtn = (value)=>{
   //     clsx()

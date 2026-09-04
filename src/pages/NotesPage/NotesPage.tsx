@@ -7,6 +7,8 @@ import { getNotes } from "../../redux/notes/operations";
 import NotesStatistics from "../../components/NotesStatistics/NotesStatistics";
 import { selectError, selectLoading } from "../../redux/notes/selectors";
 import NotesFilters from "../../components/NotesFilters/NotesFilters";
+import DailyQuote from "../../components/DailyQuote/DailyQuote";
+import HelmetComponent from "../../components/HelmetComponent";
 
 const NotesPage = () => {
   //const notes = useSelector(selectNotes);
@@ -18,10 +20,12 @@ const NotesPage = () => {
   }, [dispatch]);
   return (
     <main>
+      <HelmetComponent>Notes page</HelmetComponent>
       <section>
         <NoteForm />
         <NotesStatistics />
         <NotesFilters />
+        <DailyQuote />
       </section>
       <section>
         {loader && <p>Loading.......</p>}

@@ -1,10 +1,11 @@
 import LoginForm from "../../components/LoginForm/LoginForm";
-
+import HelmetComponent from "../../components/HelmetComponent";
 const LoginPage = () => {
   return (
-    <div>
+    <main>
+      <HelmetComponent>Login page</HelmetComponent>
       <LoginForm />
-    </div>
+    </main>
   );
 };
 

@@ -1,13 +1,9 @@
 import axios from "axios";
+import type { ApiQouteResponce } from "../types/types";
+const API_KEY = "2UKCk9pixBmtIKB84OmVSw3DfYYwONBI2cGlvtxU";
 
-const API_KEY = "fHXLDo5Kjen5sQGC30ZoXMO3PBW1MsnyGaB7qpTs";
-interface ApiResponce {
-  quote: string;
-  author: string;
-  category: string;
-}
-async function fetchRandomQuote(): Promise<ApiResponce[]> {
-  const responce = await axios.get<ApiResponce[]>(
+async function fetchRandomQuote(): Promise<ApiQouteResponce> {
+  const responce = await axios.get<ApiQouteResponce[]>(
     "https://api.api-ninjas.com/v2/randomquotes?categories=wisdom",
     {
       headers: {
@@ -15,7 +11,8 @@ async function fetchRandomQuote(): Promise<ApiResponce[]> {
       },
     },
   );
-  return responce.data;
+  console.log(responce.data);
+  return responce.data[0];
 }
 
 export default fetchRandomQuote;

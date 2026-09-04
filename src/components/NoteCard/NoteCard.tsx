@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useAppDispatch } from "../../hooks.ts";
 import { deleteNote, updateNote } from "../../redux/notes/operations.ts";
 import type { NoteType } from "../../types/types.ts";
@@ -21,7 +22,7 @@ const NoteCard = ({ note }: NoteCardProps) => {
     );
   };
   return (
-    <div>
+    <div className={clsx(note.done && css.activeStats, css.statsBtn)}>
       {note.title}
       <button
         type="button"

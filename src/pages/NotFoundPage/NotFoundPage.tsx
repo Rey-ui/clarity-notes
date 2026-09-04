@@ -1,5 +1,11 @@
+import HelmetComponent from "../../components/HelmetComponent";
+
 const NotFoundPage = () => {
-  return <div>NotFoundPage</div>;
+  return (
+    <main>
+      <HelmetComponent>Not Found page</HelmetComponent>NotFoundPage
+    </main>
+  );
 };
 
 export default NotFoundPage;
