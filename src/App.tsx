@@ -9,6 +9,7 @@ import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import { Toaster } from "react-hot-toast";
+import Loader from "./components/Loader/Loader";
 
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
@@ -25,7 +26,10 @@ function App() {
   return (
     <>
       {isRefreshing ? (
-        <p>refreshing user...</p>
+        <div>
+          <Loader />
+          <p>Refreshing User Data...</p>
+        </div>
       ) : (
         <Routes>
           <Route path="/" element={<Layout />}>

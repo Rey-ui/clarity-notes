@@ -1,7 +1,5 @@
-
 import type { AuthResponse, LoginType, RegisterType } from "../types/authTypes";
 import { instance } from "./api";
-
 
 export function setToken(token: string): void {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -22,6 +20,7 @@ export async function apiRegisterUser(
     access_token: response.data.access_token,
     refresh_token: response.data.refresh_token,
     user: {
+      user_id: response.data.user.identities[0].user_id,
       name: response.data.user.user_metadata?.name,
       email: response.data.user.email,
     },
@@ -35,14 +34,17 @@ export async function apiLoginUser(data: LoginType): Promise<AuthResponse> {
     "/auth/v1/token?grant_type=password",
     data,
   );
+  console.log(response);
   const mappedResponse = {
     access_token: response.data.access_token,
     refresh_token: response.data.refresh_token,
     user: {
+      user_id: response.data.user.identities[0].user_id,
       name: response.data.user.user_metadata?.name,
       email: response.data.user.email,
     },
   };
+  console.log(mappedResponse);
   setToken(response.data.access_token);
   return mappedResponse;
 }
@@ -61,6 +63,7 @@ export async function apiRefreshUser(
     access_token: response.data.access_token,
     refresh_token: response.data.refresh_token,
     user: {
+      user_id: response.data.user.identities[0].user_id,
       name: response.data.user.user_metadata?.name,
       email: response.data.user.email,
     },

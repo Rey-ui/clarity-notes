@@ -3,6 +3,9 @@ import * as Yup from "yup";
 import { useAppDispatch } from "../../hooks";
 import { addNote } from "../../redux/notes/operations";
 import type { RequestNoteType } from "../../types/types";
+import { BsPlusLg } from "react-icons/bs";
+import { FaPen } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 interface InitialValuesTypes {
   title: string;
@@ -40,15 +43,14 @@ const NoteForm = () => {
       ...values,
       done: false,
     };
-    dispatch(addNote(finalNote));
-    // .unwrap()
-    // .then(() => {
-    //   toast.success("success signUn");
-    // })
-    // .catch(() => {
-    //   toast.error("error register");
-    // });
-    console.log(finalNote);
+    dispatch(addNote(finalNote))
+      .unwrap()
+      .then(() => {
+        toast.success("successfully added");
+      })
+      .catch(() => {
+        toast.error("error");
+      });
     resetForm();
   };
   return (
@@ -58,25 +60,52 @@ const NoteForm = () => {
       onSubmit={onSubmit}
     >
       <Form>
-        <h2></h2>
-        <Field type="text" name="title" />
-        <Field as="textarea" type="text" name="content" />
+        <h2>
+          <span>Create Note</span>
+          <FaPen />
+        </h2>
         <div>
-          <label>
-            <Field type="radio" name="priority" value="high" />
-            High
-          </label>
-          <label>
-            <Field type="radio" name="priority" value="medium" />
-            Medium
-          </label>
-          <label>
-            <Field type="radio" name="priority" value="low" />
-            Low
-          </label>
+          <div>
+            <label>
+              <h3>Title</h3>
+              <Field
+                type="text"
+                name="title"
+                placeholder="Enter note title..."
+              />
+            </label>
+            <label>
+              <h3>Content</h3>
+              <Field
+                as="textarea"
+                type="text"
+                name="content"
+                placeholder="Write your note here..."
+              />
+            </label>
+            <div>
+              <h3>Priority</h3>
+              <div>
+                <label>
+                  <Field type="radio" name="priority" value="high" />
+                  High
+                </label>
+                <label>
+                  <Field type="radio" name="priority" value="medium" />
+                  Medium
+                </label>
+                <label>
+                  <Field type="radio" name="priority" value="low" />
+                  Low
+                </label>
+              </div>
+            </div>
+          </div>
+          <button type="submit">
+            <BsPlusLg />
+            Add Note
+          </button>
         </div>
-
-        <button type="submit">add note</button>
       </Form>
     </Formik>
   );

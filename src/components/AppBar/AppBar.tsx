@@ -6,6 +6,8 @@ import { selectTheme } from "../../redux/notes/selectors";
 import { useEffect } from "react";
 import { useAppDispatch } from "../../hooks";
 import { changeTheme } from "../../redux/notes/slice";
+import { FaMoon } from "react-icons/fa";
+import { IoSunnyOutline } from "react-icons/io5";
 
 const AppBar = () => {
   const dispatch = useAppDispatch();
@@ -15,15 +17,21 @@ const AppBar = () => {
     document.body.dataset.theme = theme;
   }, [theme]);
   const toggleTheme = () => {
-    dispatch(changeTheme(theme == "light" ? "dark" : "light"));
+    dispatch(changeTheme(theme === "light" ? "dark" : "light"));
   };
   return (
     <header>
-      <h1>AppBar</h1>
-      <button type="button" onClick={toggleTheme}>
-        theme
-      </button>
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      <div className="container">
+        <div>
+          <h1>
+            <span>C</span>Clarity
+          </h1>
+          <button type="button" onClick={toggleTheme}>
+            {theme === "light" ? <FaMoon /> : <IoSunnyOutline />}
+          </button>
+        </div>
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      </div>
     </header>
   );
 };

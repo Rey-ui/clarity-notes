@@ -24,3 +24,6 @@ export async function apiGetNotes(): Promise<NoteType[]> {
   const response = await instance.get("/rest/v1/notes");
   return response.data;
 }
+export async function apiClearAllNotes(userId: string): Promise<void> {
+  await instance.delete(`/rest/v1/notes?user_id=eq.${userId}`);
+}

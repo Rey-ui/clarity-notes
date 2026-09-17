@@ -5,6 +5,7 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 const initialAuthState: InitialAuthStateType = {
   user: {
+    user_id: "",
     name: "",
     email: "",
   },
@@ -38,7 +39,7 @@ const slice = createSlice({
         },
       )
       .addCase(logoutUser.fulfilled, (state) => {
-        state.user = { name: "", email: "" };
+        state.user = { user_id: "", name: "", email: "" };
         state.refreshToken = null;
         state.accessToken = null;
         state.isLoggedIn = false;

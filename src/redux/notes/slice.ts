@@ -1,6 +1,12 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { InitialNotesStateType, NoteType } from "../../types/types";
-import { addNote, deleteNote, getNotes, updateNote } from "./operations";
+import {
+  addNote,
+  clearNotes,
+  deleteNote,
+  getNotes,
+  updateNote,
+} from "./operations";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
@@ -68,7 +74,11 @@ const slice = createSlice({
           state.error = null;
         },
       )
-      .addCase(updateNote.rejected, handleRejected);
+      .addCase(updateNote.rejected, handleRejected)
+      .addCase(clearNotes.fulfilled, (state) => {
+        state.items = [];
+        state.loading = false;
+      });
   },
 });
 

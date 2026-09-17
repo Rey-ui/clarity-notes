@@ -5,7 +5,8 @@
   --surface-color: #ffffff;
   --text-main: #0f172a;
   --text-secondary: #707070;
-  --accent: #6366f1;
+  --accent: #2dd4bf;
+  --accent-hover: #259e93;
   --border-forms: #e7e7e9;
   --border-color: #e7e7e9;
   --bg-inputs: #ffffff;
@@ -13,18 +14,21 @@
 }
 
 [data-theme="dark"] {
-  --bg-color: #0f172a;
-  --surface-color: #1e293b;
-  --text-main: #f8fafc;
+  --bg-color: #0a0f1a;
+  --surface-color: #131c2e;
+  --text-main: #e2e8f0;
   --text-secondary: #909090;
-  --accent: #818cf8;
-  --border-color: #343e4f;
-  --border-forms: #3a4454;
-  --bg-inputs: #253041;
+  --accent: #2dd4bf;
+  --accent-hover: #207876;
+  --border-color: #161c26;
+  --border-forms: #242c3d;
+  --bg-inputs: #182033;
   --bg-hover-note: #182234;
 }
 
 body {
   background-color: var(--bg-color);
+  color: var(--text-main);
   transition: all 500ms;
+  background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 20v8 M20 24h8' stroke='%23e2e8f0' stroke-opacity='0.05' stroke-width='1.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
 }

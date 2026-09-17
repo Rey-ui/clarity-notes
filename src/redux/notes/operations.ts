@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   apiAddNote,
+  apiClearAllNotes,
   apiDeleteNote,
   apiGetNotes,
   apiUpdateNote,
@@ -56,6 +57,20 @@ export const updateNote = createAsyncThunk<NoteType, NoteType>(
     try {
       const response = await apiUpdateNote(data);
       return response;
+    } catch (error) {
+      if (error instanceof Error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+      return thunkAPI.rejectWithValue("Unknown error");
+    }
+  },
+);
+
+export const clearNotes = createAsyncThunk<void, string>(
+  "notes/clearNotes",
+  async (id, thunkAPI) => {
+    try {
+      await apiClearAllNotes(id);
     } catch (error) {
       if (error instanceof Error) {
         return thunkAPI.rejectWithValue(error.message);

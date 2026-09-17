@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { useAppDispatch } from "../../hooks.ts";
 import { deleteNote, updateNote } from "../../redux/notes/operations.ts";
 import type { NoteType } from "../../types/types.ts";
-
+import css from "./NoteCard.module.css";
 interface NoteCardProps {
   note: NoteType;
 }
@@ -46,3 +46,13 @@ const NoteCard = ({ note }: NoteCardProps) => {
 };
 
 export default NoteCard;
+
+// render(<Triangle
+// visible={true}
+// height="80"
+// width="80"
+// color="#4fa94d"
+// ariaLabel="triangle-loading"
+// wrapperStyle={{}}
+// wrapperClass=""
+// />)

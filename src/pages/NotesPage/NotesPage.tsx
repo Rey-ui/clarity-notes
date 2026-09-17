@@ -9,6 +9,7 @@ import { selectError, selectLoading } from "../../redux/notes/selectors";
 import NotesFilters from "../../components/NotesFilters/NotesFilters";
 import DailyQuote from "../../components/DailyQuote/DailyQuote";
 import HelmetComponent from "../../components/HelmetComponent";
+import Loader from "../../components/Loader/Loader";
 
 const NotesPage = () => {
   //const notes = useSelector(selectNotes);
@@ -28,7 +29,7 @@ const NotesPage = () => {
         <DailyQuote />
       </section>
       <section>
-        {loader && <p>Loading.......</p>}
+        {loader && <Loader />}
         <NotesList />
         {error && <p>{error}</p>}
       </section>
